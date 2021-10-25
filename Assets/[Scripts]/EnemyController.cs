@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject Explosion;
+
     public float horizontalSpeed;
     public float horizontalBoundary;
     public float direction;
@@ -40,4 +42,21 @@ public class EnemyController : MonoBehaviour
     //        direction = 1.0f;
     //    }
     //}
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if((col.tag == "PlayerShipTag") || (col.tag == "PlayerBulletTag"))
+        {
+
+            PlayExplosion();
+            Destroy(gameObject);
+        }
+    }
+
+    void PlayExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(Explosion);
+
+        explosion.transform.position = transform.position;
+    }
 }

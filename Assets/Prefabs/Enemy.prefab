@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 5634818486967424784}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: EnemyShipTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eeee221eb02cd544f8cd4f9d925f39bc, type: 3}
+  m_Sprite: {fileID: -8868581108171312049, guid: 3b4d51d2ba1811249a776393350a15ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -142,7 +142,7 @@ Animator:
   m_GameObject: {fileID: 3091073566791249613}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 76d3839f6dcdb9a4b9e16095aab89a4a, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae924e2913b5bc44fbb3383f344722e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Explosion: {fileID: 5751314048184392623, guid: 509328fcd63831e4289c8e03fd29db13, type: 3}
   horizontalSpeed: 2
   horizontalBoundary: 2.1
   direction: -1
@@ -183,7 +184,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.4, y: 0.31}
+    oldSize: {x: 0.72, y: 0.72}
     newSize: {x: 0.4, y: 0.31}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -209,7 +210,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.4, y: 0.31}
+    oldSize: {x: 0.72, y: 0.72}
     newSize: {x: 0.4, y: 0.31}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

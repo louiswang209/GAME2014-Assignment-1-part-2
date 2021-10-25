@@ -3,9 +3,34 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //public GameObject GameManagerGO;
+
+    public GameObject PlayerBullet;
+    public GameObject bulletPosition01;
+    public GameObject bulletPosition02;
+    public GameObject Explosion;
+
+    public Text LivesUIText;
+
+    //const int MaxLives = 3;
+    //int lives;
+
+    //public void Init()
+    //{
+    //    lives = MaxLives;
+
+    //    LivesUIText.text = lives.ToString();
+
+    //    gameObject.SetActive(true);
+
+    //}
+
+
     public BulletManager bulletManager;
 
     [Header("Boundary Check")]
@@ -33,6 +58,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        GameObject bullet01 = (GameObject)Instantiate(PlayerBullet);
+        bullet01.transform.position = bulletPosition01.transform.position;
+
+        GameObject bullet02 = (GameObject)Instantiate(PlayerBullet);
+        bullet02.transform.position = bulletPosition02.transform.position;
+
         _Move();
         _CheckBounds();
         _FireBullet();
@@ -112,4 +144,33 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if((col.tag == "EnemyShipTag") || (col.tag == "EnemyBulletTag"))
+        {
+
+            PlayExplosion();
+            Destroy(gameObject);
+            //lives--;
+            //LivesUIText.text = lives.ToString();
+
+            //if (lives == 0)
+            //{
+            //    //GameManagerGO.GetComponent<GameManager>().SetGameManagerState(GameManager.GameManagerState.GameOver);
+            //    //gameObject.SetActive(false);
+            //    Destroy(gameObject);
+            //}
+
+            
+        }
+    }
+
+    void PlayExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(Explosion);
+
+        explosion.transform.position = transform.position;
+    }
+
 }
